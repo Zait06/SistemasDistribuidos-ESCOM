@@ -1,3 +1,3 @@
-Desarrollo de Sistemas Distribudios
+Desarrollo de Sistemas Distribuidos
 
 Profesor: Ukranio Coronilla Contreras
