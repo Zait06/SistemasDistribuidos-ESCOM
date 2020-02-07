@@ -1,3 +1,8 @@
+#include "Coordenada.h"
+#include "Rectangulo.h"
+#include <iostream>
+using namespace std;
+
 Rectangulo::Rectangulo() : superiorIzq(0,0), inferiorDer(0,0)
  { }
 
