@@ -1,3 +1,5 @@
+#include "Coordenada.h"
+
 class Rectangulo
  {
  private:
