@@ -1,0 +1,11 @@
+La heterogeneidad, a cual de los siguienets elementos se les aplica?
+Redes
+Sistemas operativos
+Hardware de computadores
+Todas las anteriores
+
+Un sistema es __________ si conserva su efectividad cuando ocurre un incremento significativo en el número de recursos y el número de usuario.
+Escalable
+Confiable
+Efectivo
+Ninguna de las anteriores
