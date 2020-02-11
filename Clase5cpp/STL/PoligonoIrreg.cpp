@@ -11,6 +11,8 @@ PoligonoIrreg::PoligonoIrreg(double x1,double y1,double x2,double y2,double x3,d
     numVertices=+3;
 }
 
+int PoligonoIrreg::numVertices=0;
+
 void PoligonoIrreg::anadeVertice(double xx, double yy){
     poligono.push_back(Coordenada(xx,yy));
     numVertices++;
