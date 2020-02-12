@@ -16,15 +16,14 @@ int main(){
     int n=25;
     for(i=0;i<n;i++)
         ppn.anadeVertice( (drand48()* (100.000-300.000) + 100.000),(drand48()* (100.000-300.000) + 100.000));
+    
+    // ppn.imprimeVertices();
+    
+    ppn.ordenaA();
 
-  
     ppn.imprimeVertices();
 
- 
-
-  
-
     //cout<<"Numero de vertices: "<<ppn[0].getNumVertices()<<endl;
-    
+
     return 0;
 }

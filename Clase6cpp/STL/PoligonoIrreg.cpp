@@ -1,5 +1,6 @@
 #include "PoligonoIrreg.h"
 #include "Coordenada.h"
+#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -35,11 +36,19 @@ void PoligonoIrreg::imprimeVertices(){
     vector<Coordenada>::iterator i;
     for (i = coordenadas.begin( ); i != coordenadas.end( ); i++){
         Coordenada c=*i;
-         cout.setf(ios::fixed);
+        cout.setf(ios::fixed);
         cout.setf(ios::showpoint);
         cout.precision(3);
         cout<<"Vertice ("<<c.obtenerX()<<","<<c.obtenerY()<<"), Magnitud: "<< c.obtenerMag()<<endl;
 
     }
  
+}
+
+bool funcionOrden (Coordenada i,Coordenada j) {
+    return (i.obtenerMag()<j.obtenerMag());
+}
+
+void PoligonoIrreg::ordenaA(){
+    sort(coordenadas.begin(),coordenadas.end(),funcionOrden);
 }

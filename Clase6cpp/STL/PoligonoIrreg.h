@@ -13,6 +13,7 @@ class PoligonoIrreg{
                 PoligonoIrreg(double=0,double=0,double=1,double=1,double=1,double=0);
                 void anadeVertice(double xx, double yy);
                 void imprimeVertices();
+                void ordenaA();
 };
 
 #endif
