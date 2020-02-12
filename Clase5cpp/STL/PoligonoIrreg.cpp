@@ -14,7 +14,7 @@ PoligonoIrreg::PoligonoIrreg(double x1,double y1,double x2,double y2,double x3,d
     coordenadas.push_back(Coordenada(x1,y1));
     coordenadas.push_back(Coordenada(x2,y2));
     coordenadas.push_back(Coordenada(x3,y3));
-    numVertices=+3;
+    numVertices=numVertices+3;
     return;
 }
 

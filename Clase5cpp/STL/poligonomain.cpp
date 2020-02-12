@@ -28,7 +28,7 @@ int main(){
     //         ppn[i].anadeVertice(rand()%100,rand()%100);
     // }
 
-    cout<<"Numero de vertices: "<<ppn[i].getNumVertices()<<endl;
+    cout<<"Numero de vertices: "<<ppn[0].getNumVertices()<<endl;
     
     return 0;
 }
