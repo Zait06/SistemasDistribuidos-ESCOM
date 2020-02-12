@@ -1,0 +1,11 @@
+Estas formas de comunicación utilizan la abstracción de sockets, que porporciona los puntos extremos de la comunicación entre procesos:
+UDP y TCP
+UDP
+TCP
+IP/TCP
+
+En el tamaño del mensaje en UDP, usuario debe especificar una cadena de:
+bytes
+caracteres
+bits
+numeros
