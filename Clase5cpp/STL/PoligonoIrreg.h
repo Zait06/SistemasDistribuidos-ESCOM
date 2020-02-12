@@ -10,7 +10,8 @@ class PoligonoIrreg{
                 static int numVertices;
 	public:
                 static int getNumVertices();
-                PoligonoIrreg(double=0,double=0,double=1,double=1,double=1,double=0);
+                // PoligonoIrreg(double=0,double=0,double=1,double=1,double=1,double=0);
+                PoligonoIrreg(int reserva);
                 void anadeVertice(double xx, double yy);
                 void imprimeVertices();
 };
