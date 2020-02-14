@@ -34,7 +34,7 @@ void PoligonoIrreg::imprimeVertices(){
     //     cout<<"Vertice ("<<coordenadas[i].obtenerX()<<","<<coordenadas[i].obtenerY()<<")"<<endl;
 
     vector<Coordenada>::iterator i;
-    for (i = coordenadas.begin( ); i != coordenadas.end( ); i++){
+    for (i = coordenadas.begin( ); i != coordenadas.begin( )+7; i++){
         Coordenada c=*i;
         cout.setf(ios::fixed);
         cout.setf(ios::showpoint);
@@ -50,5 +50,5 @@ bool funcionOrden (Coordenada i,Coordenada j) {
 }
 
 void PoligonoIrreg::ordenaA(){
-    sort(coordenadas.begin(),coordenadas.end(),funcionOrden);
+    sort(coordenadas.begin(),coordenadas.begin()+7,funcionOrden);
 }

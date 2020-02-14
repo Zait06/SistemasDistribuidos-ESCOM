@@ -17,8 +17,9 @@ int main(){
     for(i=0;i<n;i++)
         ppn.anadeVertice( (drand48()* (100.000-300.000) + 100.000),(drand48()* (100.000-300.000) + 100.000));
     
-    // ppn.imprimeVertices();
+    ppn.imprimeVertices();
     
+    cout<<endl;
     ppn.ordenaA();
 
     ppn.imprimeVertices();
