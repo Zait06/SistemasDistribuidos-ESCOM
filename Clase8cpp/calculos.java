@@ -1,9 +1,8 @@
-import java.util.Scanner;
 public class calculos {
     public static void main(String[] args) {
-        double i=0, seno,coseno,tangente,logaritmo=1,raiz=0;
-        Scanner in = new Scanner(System.in);
-        int n= in.nextInt();
+        double i=1, seno=0,coseno=0,tangente=0,logaritmo=0,raiz=0;
+        // Scanner in = new Scanner(System.in);
+        double n=Integer.parseInt(args[0]);
         while (i<n)
         {
            seno= Math.sin(i);
