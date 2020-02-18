@@ -3,15 +3,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main() {
+int main(int argc, char *argv[]) {
     srand(time(NULL));
     int n = 0, v= 0, i , j;
     char* gigante = NULL;
     char alfabeto[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char palabra[4];
     char ipn[] = "IPN";
-    printf("Ingresa N: ");
-    scanf("%d", &n);
+    // printf("Ingresa N: ");
+    // scanf("%d", &n);
+	n=strtol(argv[1], NULL, 10);
 
     for (int i = 0; i < n; i++) {
     	gigante = (char*)realloc(gigante, (i + 1) * 4);

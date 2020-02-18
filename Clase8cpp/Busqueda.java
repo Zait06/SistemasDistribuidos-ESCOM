@@ -1,14 +1,13 @@
-import java. util. Scanner;
 import java.util.Random;
 
 public class Busqueda{
 	public static void main(String[] arg){
         int n;
-        String npalabras="";
+        String npalabras="",in;
         String alfabeto  ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        System.out.println("Ingrese el número de palabras: ");
-        Scanner in = new Scanner(System.in);            
-        n = in. nextInt();
+        // System.out.println("Ingrese el número de palabras: ");
+        // Scanner in = new Scanner(System.in);            
+        n=Integer.parseInt(arg[0]);
       
         char letra;
         // // generar n “palabras” de tres

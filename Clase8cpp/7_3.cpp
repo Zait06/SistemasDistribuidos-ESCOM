@@ -3,12 +3,13 @@
 #include <ctime>
 using namespace std;
 
-int main(){
+int main(int argc, char *argv[]){
     int n;
     string npalabras;
     string alfabeto  ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    cout << "Ingrese el número de palabras: ";
-    cin >> n;
+    // cout << "Ingrese el número de palabras: ";
+    // cin >> n;
+    n=strtol(argv[1], NULL, 10);
     string palabra="";
     srand(time(NULL));
     string letra;
@@ -21,7 +22,7 @@ int main(){
         }
         //manteniendo un espacio en blanco de separación entre cada palabra.
         palabra.append(" ");
-        npalabras.append( palabra);
+        npalabras.append(palabra);
         palabra="";
     }
     //cout<< npalabras;

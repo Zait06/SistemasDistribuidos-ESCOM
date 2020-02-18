@@ -15,4 +15,4 @@ if __name__== "__main__":
         tangente+=math.tan(i)
         logaritmo+=math.log10(i)
         raizCuad+=math.sqrt(i)
-        i=i+i
+        i=i+1

@@ -1,3 +1,4 @@
+import sys
 import random
 
 def countWord(text):
@@ -9,10 +10,9 @@ def countWord(text):
     return s 
 
 if __name__== "__main__":
-    n=0
+    n=int(sys.argv[1])
     npalabras=""
     alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    n=int(input("Ingrese el número de palabras: "))
     palabra=""
     
     for i in range(n):
