@@ -5,7 +5,7 @@ using namespace std;
 
 void funcion(int valor)
 {
-	printf("Hilo %d Valor recibido %d\n" , this_thread::get_id(), valor);
+	printf("Hilo %ld Valor recibido %d\n" , this_thread::get_id(), valor);
 	sleep(2);
 }
 
