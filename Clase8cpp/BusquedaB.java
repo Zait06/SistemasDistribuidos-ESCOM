@@ -24,7 +24,7 @@ public class BusquedaB{
         int total=0;
         int i, j;
         // //búsqueda de la subcadena “IPN”}
-       byte[] ipn = {'I', 'P', 'N'};
+        byte[] ipn = {'I', 'P', 'N'};
         for(i = 0; i <= npalabras.length-3; i++) {
             for(j = 0; j < 3; j++)
                 if((char)npalabras[i + j] != ipn[j])
