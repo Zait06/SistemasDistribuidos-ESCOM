@@ -3,7 +3,7 @@
 #include <math.h>
 
 int main(int argc, char *argv[]){
-    double n=strtol(argv[1], NULL, 10);
+    double n=strtod(argv[1], NULL);
     double i=0;
     double seno=0;
     double coseno=0;
