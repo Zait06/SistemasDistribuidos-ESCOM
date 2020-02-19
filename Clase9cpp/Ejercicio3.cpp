@@ -6,12 +6,6 @@ using namespace std;
 
 int varGlob=0;
 
-void funcion(int valor)
-{
-	printf("Hilo: %ld Valor recibido: %d\n",(this_thread::get_id()),valor);
-	sleep(2);
-}
-
 void incrementa(int n){
 	for(int i=0;i<n;i++)
         varGlob++;
