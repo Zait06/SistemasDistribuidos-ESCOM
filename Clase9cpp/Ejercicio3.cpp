@@ -25,7 +25,6 @@ void decrementa(int n){
 int main(int argc, char *argv[])
 {
     int a=strtol(argv[1], NULL, 10);
-	// thread th1(funcion, 5), th2(funcion, 10);
 	thread th1(incrementa,a), th2(decrementa,a);
 	cout << "Proceso principal espera que los hilos terminen\n";
 	th1.join();
