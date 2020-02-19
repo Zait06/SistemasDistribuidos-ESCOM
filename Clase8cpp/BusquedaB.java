@@ -33,7 +33,7 @@ public class BusquedaB{
                 total++;
         }
 
-         System.out.println("Total="+ total);
+        System.out.println("Total="+ total);
 
 	}
 }
