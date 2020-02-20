@@ -6,12 +6,12 @@ using namespace std;
 
 int varGlob=0;
 
-void incrementa(int n){
+void incrementa(){
 	varGlob++;
 	sleep(1);
 }
 
-void decrementa(int n){
+void decrementa(){
 	varGlob--;
 	sleep(1);
 }
