@@ -10,17 +10,19 @@ int varGlob=0;
 mutex mux;
 
 void incrementa(int n){
-	mux.lock();
-	for(int i=0;i<n;i++)
+	for(int i=0;i<n;i++){
+		mux.lock();
         varGlob++;
-    mux.unlock();
+		mux.unlock();
+	}	
 }
 
 void decrementa(int n){
-	mux.lock();
-    for(int i=0;i<n;i++)
+    for(int i=0;i<n;i++){
+		mux.lock();
         varGlob--;
-    mux.unlock();
+		mux.unlock();
+	}
 }
 
 int main(int argc, char *argv[])
