@@ -9,3 +9,9 @@ bytes
 caracteres
 bits
 numeros
+
+Ambas formas de comunicación (UDT y TCP) utilizan la abstracción de _____, que proporciona los puntos extremos de la comunicación entre procesos.
+sockets
+POO
+multiproceso
+hilos
