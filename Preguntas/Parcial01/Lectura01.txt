@@ -11,22 +11,19 @@ Efectivo
 Ninguna de las anteriores
 
 Meencione las características principales con las que cuenta un sistema distribuido:
-1) Concurrencia
-2) Sin reloj global
-3) Falla independiente de los componentes.
-4) Ninguna de las anteriores.
-5) Todas las anteriores.
+Concurrencia,no cuenta con reloj global, falla independiente de los componentes.
+Envio de datagramas, fiable, robusto.
+Extensible, no cuenta con relog global, acceso virtual a terminales.
 
 La ___________ de un sistema distribuido se determina en primer lugar por el grado en el cual se pueden añadir nuevos servicios de compartición de recursos y ponerlos a disposición para el uso por una variedad de programas cliente.
-a) Heterogeneidad.
-b) Seguridad.
-c) Transparencia.
-d) Extensibilidad.
-e) Concurrencia.
+Extensibilidad.
+Heterogeneidad.
+Seguridad.
+Transparencia.
+Concurrencia.
 
-Marque los dos incisos de cuales son los retos al diseñar un sistema distribuido escalable.
-a) Control del coste de los recursos físicos, control de las pérdidas de prestaciones.
-b) Tolerancia de fallos, control de las pérdidas de prestaciones.
-c) Detección de fallos, recuperación frente a fallos.
-d) Prevención de desbordamiento, evitación de cuellos de botella.
-e) Tolerancia a fallos.
+Marque los dos incisos de cuales son los retos al diseñar un sistema distribuido escalable:
+Control del coste de los recursos físicos, control de las pérdidas de prestaciones, prevención de desbordamiento, evitación de cuellos de botella.
+Detección de fallos, tolerancia de fallos, control del coste de los recursos físicos, control de las pérdidas de prestaciones.
+Detección de fallos, recuperación frente a fallos, evitación de cuellos de botella, extensibilidad.
+Tolerancia a fallos, prevención de desbordamiento, seguridad del código móvil.

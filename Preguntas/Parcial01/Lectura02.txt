@@ -12,23 +12,23 @@ numeros
 
 <<<<<<< HEAD
 ¿Cómo están diseñados los protocolos petición-respuesta?
-a) Para soportar una comunicación cliente-servidor.
-b) Para soportar una comunicación cliente-servidor, tanto bajo la forma RMI como RPC.
-C) Para soportar la comunicación entre grupos.
-d) Para vconstruir protocolos que soporten estructuras de procesos y patrones de comunicación.
-e) Diseñar protocolos de comunicación pasadoss en intercambios eficientes.
+Para soportar una comunicación cliente-servidor, tanto bajo la forma RMI como RPC.
+Para soportar una comunicación cliente-servidor.
+Para soportar la comunicación entre grupos.
+Para vconstruir protocolos que soporten estructuras de procesos y patrones de comunicación.
+Diseñar protocolos de comunicación pasadoss en intercambios eficientes.
 
 Un ____________ enviado por UDP se transmite desde un proceso emisor a un proceso receptor sin acuse de recibo ni reintentos.
-a) RMI.
-b) RCP.
-c) Datagrama.
-d) Socket.
+Datagrama.
+RMI.
+RCP.
+Socket.
 
 La abstracción de stream oculta las siguientes características de la red, marque las opciones que crea correctas:
-a) Tamaño de los mensaje, Control de flujo.
-b) Mensajes perdidos, duplicación y ordenación de los mensaje.
-c) Fallos de omisión, ordenamiento.
-d) Tamaño de mensaje, ordenamiento.
+Tamaño de los mensaje, Control de flujo, Mensajes perdidos, duplicación y ordenación de los mensaje.
+Fallos de omisión, ordenamiento, Control de flujo, Concordancia de ítems de datos.
+Tamaño de mensaje, ordenamiento mensajes perdidos, servidor socket, fiabilidad.
+Tamaño del mensaje, bloqueo, tiempo límite de espera, recibo de mensaje
 =======
 Ambas formas de comunicación (UDT y TCP) utilizan la abstracción de _____, que proporciona los puntos extremos de la comunicación entre procesos.
 sockets
