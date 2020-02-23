@@ -10,6 +10,7 @@ caracteres
 bits
 numeros
 
+<<<<<<< HEAD
 ¿Cómo están diseñados los protocolos petición-respuesta?
 a) Para soportar una comunicación cliente-servidor.
 b) Para soportar una comunicación cliente-servidor, tanto bajo la forma RMI como RPC.
@@ -28,3 +29,10 @@ a) Tamaño de los mensaje, Control de flujo.
 b) Mensajes perdidos, duplicación y ordenación de los mensaje.
 c) Fallos de omisión, ordenamiento.
 d) Tamaño de mensaje, ordenamiento.
+=======
+Ambas formas de comunicación (UDT y TCP) utilizan la abstracción de _____, que proporciona los puntos extremos de la comunicación entre procesos.
+sockets
+POO
+multiproceso
+hilos
+>>>>>>> 9513d640cf3f520a482e2485be18f1fb408d4bc3
