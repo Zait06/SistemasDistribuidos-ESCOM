@@ -1,29 +1,29 @@
 La heterogeneidad, a cual de los siguienets elementos se les aplica?
-Todas las anteriores
-Redes
-Sistemas operativos
-Hardware de computadores
+A. Todas las anteriores
+B. Redes
+C. Sistemas operativos
+D. Hardware de computadores
 
 Un sistema es __________ si conserva su efectividad cuando ocurre un incremento significativo en el número de recursos y el número de usuario.
-Escalable
-Confiable
-Efectivo
-Ninguna de las anteriores
+A. Escalable
+B. Confiable
+C. Efectivo
+D. Ninguna de las anteriores
 
 Meencione las características principales con las que cuenta un sistema distribuido:
-Concurrencia,no cuenta con reloj global, falla independiente de los componentes.
-Envio de datagramas, fiable, robusto.
-Extensible, no cuenta con relog global, acceso virtual a terminales.
-
+A. Concurrencia,no cuenta con reloj global, falla independiente de los componentes.
+B. Envio de datagramas, fiable, robusto.
+C. Extensible, no cuenta con relog global, acceso virtual a terminales.
+D. 
 La ___________ de un sistema distribuido se determina en primer lugar por el grado en el cual se pueden añadir nuevos servicios de compartición de recursos y ponerlos a disposición para el uso por una variedad de programas cliente.
-Extensibilidad.
-Heterogeneidad.
-Seguridad.
-Transparencia.
+A. Extensibilidad.
+B. Heterogeneidad.
+C. Seguridad.
+D. Transparencia.
 Concurrencia.
 
 Marque los dos incisos de cuales son los retos al diseñar un sistema distribuido escalable:
-Control del coste de los recursos físicos, control de las pérdidas de prestaciones, prevención de desbordamiento, evitación de cuellos de botella.
-Detección de fallos, tolerancia de fallos, control del coste de los recursos físicos, control de las pérdidas de prestaciones.
-Detección de fallos, recuperación frente a fallos, evitación de cuellos de botella, extensibilidad.
-Tolerancia a fallos, prevención de desbordamiento, seguridad del código móvil.
+A. Control del coste de los recursos físicos, control de las pérdidas de prestaciones, prevención de desbordamiento, evitación de cuellos de botella.
+B. Detección de fallos, tolerancia de fallos, control del coste de los recursos físicos, control de las pérdidas de prestaciones.
+C. Detección de fallos, recuperación frente a fallos, evitación de cuellos de botella, extensibilidad.
+D. Tolerancia a fallos, prevención de desbordamiento, seguridad del código móvil.
