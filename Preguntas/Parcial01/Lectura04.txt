@@ -1,0 +1,26 @@
+1.- ¿Cuales son las dos formas para representacion externa de datos?
+CORBA y Seializacion de Objetos
+ASCII y CORBA
+Serializacion de Objetos y ASCII
+Reflexion y CORBA
+
+2.- ¿Qué información debe incluirse en la forma lineal al serializar un objeto?
+A. El nombre de la clase y un número de versión
+B. Los nombres y los tipos de sus campos, recursivamente
+C. El nombre de la clase del objeto, los nombres, tipos y valores de sus variables de instancia
+D. Apuntadores de los objetos a los cuales hace referencia
+
+3.- ¿En la comunicacion Cliente-Servidor la comunicacion peticion-respuesta es?
+Sincrona
+Asincrona
+
+4.- ¿En que protocolo el cliente puede seguir funcionand inmediatamente después de haber mandado el mensaje de petición?
+Protocolo petición
+Protocolo petición - respuesta
+Protocolo petición - respuesta - confirmación de la respuesta  
+
+5.- En los metodos HTTP, ¿Que peticion devuelve toda la informacion sobre los datos?
+HEAD
+GET
+POST
+OPTIONS
