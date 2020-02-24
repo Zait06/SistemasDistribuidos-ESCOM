@@ -1,38 +1,38 @@
 Estas formas de comunicación utilizan la abstracción de sockets, que porporciona los puntos extremos de la comunicación entre procesos:
-UDP y TCP
-UDP
-TCP
-IP/TCP
+A. UDP y TCP
+B. UDP
+C. TCP
+D. IP/TCP
 
 En el tamaño del mensaje en UDP, usuario debe especificar una cadena de:
-bytes
-caracteres
-bits
-numeros
+A. Bytes
+B. Caracteres
+C. Bits
+D. Numeros
 
 <<<<<<< HEAD
 ¿Cómo están diseñados los protocolos petición-respuesta?
-Para soportar una comunicación cliente-servidor, tanto bajo la forma RMI como RPC.
-Para soportar una comunicación cliente-servidor.
-Para soportar la comunicación entre grupos.
-Para vconstruir protocolos que soporten estructuras de procesos y patrones de comunicación.
+A. Para soportar una comunicación cliente-servidor, tanto bajo la forma RMI como RPC.
+B. Para soportar una comunicación cliente-servidor.
+C. Para soportar la comunicación entre grupos.
+D. Para vconstruir protocolos que soporten estructuras de procesos y patrones de comunicación.
 Diseñar protocolos de comunicación pasadoss en intercambios eficientes.
 
 Un ____________ enviado por UDP se transmite desde un proceso emisor a un proceso receptor sin acuse de recibo ni reintentos.
-Datagrama.
-RMI.
-RCP.
-Socket.
+A. Datagrama.
+B. RMI.
+C. RCP.
+D. Socket.
 
 La abstracción de stream oculta las siguientes características de la red, marque las opciones que crea correctas:
-Tamaño de los mensaje, Control de flujo, Mensajes perdidos, duplicación y ordenación de los mensaje.
-Fallos de omisión, ordenamiento, Control de flujo, Concordancia de ítems de datos.
-Tamaño de mensaje, ordenamiento mensajes perdidos, servidor socket, fiabilidad.
-Tamaño del mensaje, bloqueo, tiempo límite de espera, recibo de mensaje
+A. Tamaño de los mensaje, Control de flujo, Mensajes perdidos, duplicación y ordenación de los mensaje.
+B. Fallos de omisión, ordenamiento, Control de flujo, Concordancia de ítems de datos.
+C. Tamaño de mensaje, ordenamiento mensajes perdidos, servidor socket, fiabilidad.
+D. Tamaño del mensaje, bloqueo, tiempo límite de espera, recibo de mensaje
 =======
 Ambas formas de comunicación (UDT y TCP) utilizan la abstracción de _____, que proporciona los puntos extremos de la comunicación entre procesos.
-sockets
-POO
-multiproceso
-hilos
+A. sockets
+B. POO
+C. multiproceso
+D. hilos
 >>>>>>> 9513d640cf3f520a482e2485be18f1fb408d4bc3
