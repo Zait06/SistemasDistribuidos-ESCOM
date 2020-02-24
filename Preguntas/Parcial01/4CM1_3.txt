@@ -1,29 +1,29 @@
 ¿Cuál de estas características no proporciona multicast para sistemas distribuidos?
-A. Creación de servicios en redes espontaneas
-B. Tolerancia a errores basada en servicios replicados
-C. Mejor rendimiento a través de datos replicados
-D. Propagación de notificaciones de eventos
+Creación de servicios en redes espontaneas
+Tolerancia a errores basada en servicios replicados
+Mejor rendimiento a través de datos replicados
+Propagación de notificaciones de eventos
 
 ¿Cuál es la clase de direcciones reservada para Multicast?
-A. Clase D
-B. Clase A 
-C. Clase B 
-D. Clase C 
+Clase D
+Clase A 
+Clase B 
+Clase C 
 
 ¿Qué es una operación multicast?
-A. Es una operación que envia un solo mensaje de un proceso a cada uno de los miembros de un grupo de procesos
-B. Es una operación que envia varios mensajes de un proceso a solo un miembro de un grupo de procesos
-C. Es una operación que envia un solo mensaje de un grupo de procesos a los miembros de otro grupo de procesos
-D. Es un operación que envia varios mensajes de un grupo de procesos a solo un miembro de un grupo de procesos
+Es una operación que envia un solo mensaje de un proceso a cada uno de los miembros de un grupo de procesos
+Es una operación que envia varios mensajes de un proceso a solo un miembro de un grupo de procesos
+Es una operación que envia un solo mensaje de un grupo de procesos a los miembros de otro grupo de procesos
+Es un operación que envia varios mensajes de un grupo de procesos a solo un miembro de un grupo de procesos
 
 A nivel IP, ¿cuándo una computadora pertenece a un grupo multicast?
-A. Uno o más procesos tienen sockets que pertenecen a ese grupo
-B. El socket tiene las direcciones multicast y los puertos de cada miembro del equipo
-C. Se envia por primera vez un datagrama UDP al grupo
-D. Se obtiene una copia de un mensaje multicast recibido en dicho grupo
+Uno o más procesos tienen sockets que pertenecen a ese grupo
+El socket tiene las direcciones multicast y los puertos de cada miembro del equipo
+Se envia por primera vez un datagrama UDP al grupo
+Se obtiene una copia de un mensaje multicast recibido en dicho grupo
 
 ¿Que hace el Time to Live? 
-A. Permite al remitente de un datagrama multicast especificar el número de routers donde pasará
-B. Permite al destinatario de un datagrama multicast bloquear la llegada de nuevos datagramas
-C. Permite al remitente elegir el tiempo que tardara en llegar un datagrama multicast a su destinatario
-D. Permite al remitente configurar el router al que quiere llegar
+Permite al remitente de un datagrama multicast especificar el número de routers donde pasará
+Permite al destinatario de un datagrama multicast bloquear la llegada de nuevos datagramas
+Permite al remitente elegir el tiempo que tardara en llegar un datagrama multicast a su destinatario
+Permite al remitente configurar el router al que quiere llegar
