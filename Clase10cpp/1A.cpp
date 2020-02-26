@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	 }
     //write(destino, buffer, strlen(buffer));
     
-    for(int i=0; i<strlen(buffer) ; i++){
+    for(int i=0; i<1757600*4; i++){
         write(destino, buffer+i, 1);
     }
 
