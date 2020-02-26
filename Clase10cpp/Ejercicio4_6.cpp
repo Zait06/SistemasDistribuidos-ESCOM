@@ -5,6 +5,8 @@
 #include <thread>
 using namespace std;
 
+#define numeroElementos 100000000
+
 void cpu(double n){
     double i=0;
     double seno=0;
@@ -25,11 +27,11 @@ void cpu(double n){
 
 void ram(long n){
     int *arreglo, i;
-	arreglo = new int[n];
-	for(i = 0; i < n; i++)
+	arreglo = new int[numeroElementos];
+	for(i = 0; i < numeroElementos; i++)
 	arreglo[i] = 0;
-	for(i = 0; i < 400000000; i++){
-	arreglo[rand()%n] = rand();
+	for(i = 0; i < n; i++){
+	arreglo[rand()%numeroElementos] = rand();
     }
 }
 
@@ -39,8 +41,8 @@ int main(int argc, char *argv[])
         cout << "Forma de uso: " << argv[0] <<" valor_de_n\n";
         exit(0);
 	}
-    long a=strtol(argv[1], NULL, 10);
-	thread th1(cpu,a), th2(ram,a);
+    int a=strtol(argv[1], NULL, 10);
+	thread th1(cpu,a), th2(cpu,a);
 	th1.join();
 	th2.join();
 	exit(0);
