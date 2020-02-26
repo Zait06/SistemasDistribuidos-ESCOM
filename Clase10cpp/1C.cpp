@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <cstring>
 using namespace std;
-char buffer[BUFSIZ];
+char buffer[1757600*4];
 int main(int argc, char *argv[])
 {
     int destino;
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
 	}
     //write(destino, buffer, strlen(buffer));
     
-    for(int i=0; i<strlen(buffer) ; i++){
+    for(int i=0; i<1757600*4; i=i+(BUFSIZ)){
         write(destino, buffer+i, BUFSIZ);
     }
-    fsync(destino);
+	fsync(destino);
 	close(destino);
 }
