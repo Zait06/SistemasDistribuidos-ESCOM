@@ -84,7 +84,7 @@ void dd(char nombre[]){
 int main(int argc, char *argv[])
 {
     if(argc != 2){
-        cout << "Forma de uso: " << argv[0] <<" valor_de_n\n";
+        cout << "Forma de uso: " << argv[0] <<" valor_de_n nombre_archivo\n";
         exit(0);
 	}
     int a=strtol(argv[1], NULL, 10);
