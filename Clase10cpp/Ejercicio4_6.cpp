@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         exit(0);
 	}
     long a=strtol(argv[1], NULL, 10);
-	thread th1(cpu,a), th2(cpu,a);
+	thread th1(cpu,a), th2(ram,a);
 	th1.join();
 	th2.join();
 	exit(0);
