@@ -38,11 +38,11 @@ void ram(long n){
 int main(int argc, char *argv[])
 {
     if(argc != 2){
-        cout << "Forma de uso: " << argv[0] <<" valor_de_n\n";
+        cout << "Forma de uso: " << argv[0] <<" valor_de_n nombre_archivo\n";
         exit(0);
 	}
     int a=strtol(argv[1], NULL, 10);
-	thread th1(cpu,a), th2(cpu,a);
+	thread th1(cpu,a), th2(ram,a);
 	th1.join();
 	th2.join();
 	exit(0);
