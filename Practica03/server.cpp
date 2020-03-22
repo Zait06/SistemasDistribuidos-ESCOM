@@ -6,16 +6,24 @@
 #include <cmath>
 using namespace std;
 
-int main(int argc, char const *argv[]) {
-    SocketDatagrama servidor(7200), cliente(7200);
+int main(){
+    SocketDatagrama servidor(8080);
     PaqueteDatagrama paqueteRec(2);
-    char num[2],*msg;
-    int res;
-    cout<<"\nSERVIDOR"<<endl;
+    char num[2],res[2]; int cres;
+    cout<<"SERVIDOR"<<endl;
     while(1){
-        servidor.recibe(paqueteRec);
-        memcpy(num, paqueteRec.obtieneDatos(), sizeof(char)*2);
-        cout<<num<<endl;
+        if(servidor.recibe(paqueteRec)){
+            cout<<"Mensaje de: "<<paqueteRec.obtieneDireccion()<<endl;
+            memcpy(num,paqueteRec.obtieneDatos(),2);
+            cres=int(num[0]-'0')+int(num[1]-'0');
+            paqueteRec.inicializaPuerto(paqueteRec.obtienePuerto());
+            paqueteRec.inicializaIp(paqueteRec.obtieneDireccion());
+            sprintf(res,"%d",cres);
+            paqueteRec.inicializaDatos(res);
+            cout<<paqueteRec.obtieneDatos()<<endl;
+            servidor.envia(paqueteRec);
+            cout<<"Respuesta enviada"<<endl;
+        }
     }
     return 0;
 }

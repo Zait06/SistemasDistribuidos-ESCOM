@@ -22,8 +22,8 @@ class SocketDatagrama{
     public:
         SocketDatagrama(int);
         ~SocketDatagrama();                     
-        int recibe(PaqueteDatagrama & p);       // Recibe un paquete tipo datagrama proveniente de este socket
-        int envia(PaqueteDatagrama & p);        // Envía un paquete tipo datagrama desde este socket
+        int recibe(PaqueteDatagrama &p);       // Recibe un paquete tipo datagrama proveniente de este socket
+        int envia(PaqueteDatagrama &p);        // Envía un paquete tipo datagrama desde este socket
 };
 
 #endif
