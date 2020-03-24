@@ -1,29 +1,22 @@
-#include "SocketDatagrama.h"
 #include "Solicitud.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 #include <iostream>
-#include <string>
-#include <cmath>
 using namespace std;
 
 int main(int argc, char* argv[]){
     /*Los dos enteros se le deben pasar al cliente como parámetros en la línea de comandos.*/
-    if(argc != 3) {
-		printf("Forma de uso: %s num_1 num_2\n", argv[0]);
+    if(argc != 4) {
+		printf("Forma de uso: %s ip_servidor num1 num2\n", argv[0]);
 		exit(0);
 	}
-    char num[]{'2','5'};
-    char ip[]="127.0.0.1";
-    SocketDatagrama cliente(8080);
-    PaqueteDatagrama paquete(num,sizeof(num),ip,8080), p2(sizeof(char));;
-    
-    cout<<"Cliente"<<endl;
-    
-    cliente.envia(paquete);
-    cliente.recibe(paquete);
-    cout<<"El resultado de 2+5 es: "<<paquete.obtieneDatos()<<endl;
 
-
+    int num[2];
+	num[0] = atoi(argv[2]);
+	num[1] = atoi(argv[3]);
+	Solicitud s;
+	int res;
+	memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num), 4);
+    cout<<"Cliente Iniciado"<<endl;
+    cout<<"El resultado de "<<num[0]<<" + "<<num[1]<<" es: "<<res<<endl;
     return 0;
 }

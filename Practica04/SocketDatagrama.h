@@ -1,6 +1,5 @@
 #ifndef SOCKET_DATAGRAMA_H_
 #define SOCKET_DATAGRAMA_H_
-
 #include "PaqueteDatagrama.h"
 #include <sys/types.h>
 #include <sys/types.h>
@@ -25,5 +24,4 @@ class SocketDatagrama{
         int recibe(PaqueteDatagrama &p);       // Recibe un paquete tipo datagrama proveniente de este socket
         int envia(PaqueteDatagrama &p);        // Envía un paquete tipo datagrama desde este socket
 };
-
 #endif

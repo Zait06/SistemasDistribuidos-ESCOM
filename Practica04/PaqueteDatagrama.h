@@ -1,8 +1,5 @@
 #ifndef PAQUETE_DATAGRAMA_H_
 #define PAQUETE_DATAGRAMA_H_
-#include <iostream>
-#include <cstring>
-using namespace std;
 
 class PaqueteDatagrama{
     private:

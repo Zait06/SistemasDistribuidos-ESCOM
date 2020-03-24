@@ -1,30 +1,19 @@
-#include "SocketDatagrama.h"
 #include "Respuesta.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstring>
 #include <iostream>
-#include <string>
-#include <cmath>
 using namespace std;
 
 int main(){
-    SocketDatagrama servidor(8080);
-    PaqueteDatagrama paqueteRec(2);
-    char num[2],res[2]; int cres;
-    cout<<"SERVIDOR"<<endl;
+    Respuesta resp(7200);
     while(1){
-        if(servidor.recibe(paqueteRec)){
-            cout<<"Mensaje de: "<<paqueteRec.obtieneDireccion()<<endl;
-            memcpy(num,paqueteRec.obtieneDatos(),2);
-            cres=int(num[0]-'0')+int(num[1]-'0');
-            paqueteRec.inicializaPuerto(paqueteRec.obtienePuerto());
-            paqueteRec.inicializaIp(paqueteRec.obtieneDireccion());
-            sprintf(res,"%d",cres);
-            paqueteRec.inicializaDatos(res);
-            cout<<paqueteRec.obtieneDatos()<<endl;
-            servidor.envia(paqueteRec);
-            cout<<"Respuesta enviada"<<endl;
-        }
+    	cout <<"Servidor iniciado....\n"<<endl;
+        struct mensaje* msj = resp.getRequest();
+        int n[2];
+        memcpy(&n, &msj->arguments, sizeof(msj->arguments));
+        cout<<"Datos recibidos: "<<n[0]<<" y "<<n[1]<<endl;
+        int res = n[0] + n[1];
+        cout<<"\nEnviando respuesta: \n"<<res<<endl;
+        resp.sendReply((char*) &res);
     }
     return 0;
 }

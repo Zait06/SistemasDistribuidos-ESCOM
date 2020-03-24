@@ -1,10 +1,13 @@
+#include <string.h>
+#include <cstdlib>
 #include "PaqueteDatagrama.h"
+using namespace std;
 
 PaqueteDatagrama::PaqueteDatagrama(char *dd, unsigned int ll, char *cip, int pp){
     datos=new char[ll];
-    datos=dd;
     longitud=ll;
     memcpy(ip,cip,sizeof(char)*16);
+    memcpy(datos, dd, longitud);
     puerto=pp;
 }
 
@@ -15,6 +18,8 @@ PaqueteDatagrama::PaqueteDatagrama(unsigned int ll){
 
 PaqueteDatagrama::~PaqueteDatagrama(){
     delete datos;
+    longitud = 0;
+    puerto = 0;
 }
 
 char *PaqueteDatagrama::obtieneDireccion(){

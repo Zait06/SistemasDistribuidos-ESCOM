@@ -1,4 +1,4 @@
-run: client.cpp .o SocketDatagrama.o PaqueteDatagrama.o
+run: client.cpp Solicitud.o SocketDatagrama.o PaqueteDatagrama.o
 	g++ client.cpp Solicitud.o SocketDatagrama.o PaqueteDatagrama.o -o client
 	
 Solicitud.o: Solicitud.cpp SocketDatagrama.o PaqueteDatagrama.o Solicitud.h
