@@ -14,10 +14,11 @@ int main(int argc, char* argv[]){
 	num[0] = atoi(argv[2]);
 	num[1] = atoi(argv[3]);
 	Solicitud s;
-	int res;
+	int res=0;
 	// memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num), 4);
 	memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,5,0), 4);
     cout<<"Cliente Iniciado"<<endl;
-    cout<<"El resultado de "<<num[0]<<" + "<<num[1]<<" es: "<<res<<endl;
+    //cout<<"El resultado de "<<num[0]<<" + "<<num[1]<<" es: "<<res<<endl;
+	printf("El resultado de %d + %d es: %d\n",num[0],num[1],res);
     return 0;
 }

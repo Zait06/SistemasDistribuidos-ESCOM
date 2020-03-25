@@ -103,6 +103,6 @@ int SocketDatagrama::recibeTimeout(PaqueteDatagrama &p, time_t segundos, susecon
 			cout<<"Tiempo de recepción transcurrido"<<endl;
 			return -1;
 		}
-	}
-	return i;
+	}else
+		return i;
 }
