@@ -65,7 +65,7 @@ int SocketDatagrama::envia(PaqueteDatagrama &p){
     return sendto(s, (char *)p.obtieneDatos(), p.obtieneLongitud()* sizeof(char), 0, (struct sockaddr *)&direccionForanea, sizeof(direccionForanea)); 
 }
 
-int SocketDatagrama::recibeTiemout(PaqueteDatagrama &p, time_t segundos, suseconds_t microsegundos){
+int SocketDatagrama::recibeTimeout(PaqueteDatagrama &p, time_t segundos, suseconds_t microsegundos){
 	// Inicialización de timeout
 	timeout.tv_sec=segundos;
 	timeout.tv_usec=microsegundos;
