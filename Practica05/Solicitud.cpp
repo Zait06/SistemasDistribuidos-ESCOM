@@ -25,7 +25,7 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
 
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
     // int tam = socketlocal->recibe(p1);
-    int tam = socketlocal->recibeTiemout(p1,seg,microseg);  // Metodo recibe con temporizador
+    int tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
     if (tam == -1) {
         perror("Recvfrom fallo");
     }
