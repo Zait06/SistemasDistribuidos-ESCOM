@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
 	Solicitud s;
 	int res;
 	// memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num), 4);
-	memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,2,500000), 4);
+	memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,5,0), 4);
     cout<<"Cliente Iniciado"<<endl;
     cout<<"El resultado de "<<num[0]<<" + "<<num[1]<<" es: "<<res<<endl;
     return 0;

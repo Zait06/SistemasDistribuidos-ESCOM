@@ -25,9 +25,14 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
 
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
     // int tam = socketlocal->recibe(p1);
-    int tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
-    if (tam == -1) {
-        perror("Recvfrom fallo");
+    int inten=1;
+    while(inten<=7){
+        int tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
+        if (tam == -1) {
+            perror("Recvfrom fallo");
+            inten++;
+        }else
+            break;        
     }
     cout << "\nMensaje recibido" << endl;
     cout << "Direccion: " << p1.obtieneDireccion() << endl;

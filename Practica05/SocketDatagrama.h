@@ -18,7 +18,7 @@ class SocketDatagrama{
         struct sockaddr_in direccionLocal;
         struct sockaddr_in direccionForanea;
         int s;                                  //  ID socket
-        struct timeval timeout;
+        struct timeval timeout;                 // Variable para contar el tiempo
     public:
         SocketDatagrama(int);
         ~SocketDatagrama();                     
