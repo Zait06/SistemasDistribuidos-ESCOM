@@ -20,6 +20,7 @@ int main(int argc, char* argv[]){
         // memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num), 4);
         memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,3,0), 4);
         cout<<"El resultado de "<<num[0]<<" + "<<num[1]<<" es: "<<res<<endl;
+	rep++;
     }
     return 0;
 }
