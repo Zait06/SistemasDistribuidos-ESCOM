@@ -1,31 +1,32 @@
 #include "Solicitud.h"
 #include <string.h>
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 int main(int argc, char* argv[]){
     /*Los dos enteros se le deben pasar al cliente como parámetros en la línea de comandos.*/
     if(argc != 3) {
-		cout<<"Forma de uso:"<<argv[0]<<" ip_servidor n\n"<<endl;;
+		printf("Forma de uso: %s ip_servidor n\n", argv[0]);
 		exit(0);
 	}
 
-	int seguir=0;
 	cout<<"Cliente Iniciado"<<endl;
+	Solicitud s;
+	int seguir;
 	srand(time(NULL));
+
 	for(int i=1;i<=atoi(argv[2]);i++){
-		int num=1+rand()%10;
-		cout<<"Moneda de $"<<num<<endl;
-		int res;
-		Solicitud s;
-		memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,2,500000), 4);
-		cout<<"La cantidad acumulada es: "<<res<<endl;
-		cout<<"Es correcta la cantidad?\n1. Si\t2. No\nR.-";
+		int num=1+rand()%9;
+		cout<<"Moneda con valor $"<<num<<endl;
+		int res=0;
+		memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,2,0), 4);
+		cout<<"El resultado "<<res<<endl;
+		cout<<"El valor es correcto?\n1. Si\t2. No\nR.- ";
 		cin>>seguir;
 		if(seguir==2)
 			break;
+		cout<<endl;
 	}
-    
+
     return 0;
 }
