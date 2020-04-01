@@ -19,8 +19,8 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
     memcpy(sms.arguments, arguments, sizeof(arguments));
     
 	PaqueteDatagrama p = PaqueteDatagrama((char*)&sms, sizeof(sms), IP, puerto);
-	cout << "Direccion: " << p.obtieneDireccion() << endl;
-	cout << "Puerto: " << p.obtienePuerto() << endl;
+	// cout << "Direccion: " << p.obtieneDireccion() << endl;
+	// cout << "Puerto: " << p.obtienePuerto() << endl;
 	socketlocal->envia(p);
 
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
@@ -34,9 +34,9 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
         }else
             break;        
     }
-    cout << "\nMensaje recibido" << endl;
-    cout << "Direccion: " << p1.obtieneDireccion() << endl;
-    cout << "Puerto: " << p1.obtienePuerto() << endl;
+    // cout << "\nMensaje recibido" << endl;
+    // cout << "Direccion: " << p1.obtieneDireccion() << endl;
+    // cout << "Puerto: " << p1.obtienePuerto() << endl;
 	struct mensaje* msj = (struct mensaje *)p1.obtieneDatos();
     return (char *) msj->arguments;
 }
