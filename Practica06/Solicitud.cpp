@@ -27,7 +27,7 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
         resp=socketlocal->envia(p);
         cout<<"\nRespuesta: "<<resp;
         if(resp==-1){
-            printf("\nError al enviar, reintentando");
+            cout<<"\nError al enviar, reintentando";
             return (char *)-1;
         }
     }while(resp == -1);
@@ -36,14 +36,35 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
     // int tam = socketlocal->recibe(p1);
     int inten=1;
-    while(inten<=7){
+   /* while(inten<=7){
         int tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
         if (tam == -1) {
             perror("Recvfrom fallo");
             inten++;
         }else
             break;        
-    }
+    }*/
+    int tam;
+    do{
+        tam=socketlocal->recibeTimeout(p1, seg, microseg); // Metodo recibe con temporizador
+         if (tam == -1) {
+            perror("Recvfrom fallo");
+            inten++;
+        }
+         if (tam <=7) {
+             printf("Demasiados intentos de espera de respuesta, reintentando");
+            inten=0;
+        }else
+        {
+            break;
+        }
+        
+    }while(tam == -1);
+
+
+
+
+
     // cout << "\nMensaje recibido" << endl;
     // cout << "Direccion: " << p1.obtieneDireccion() << endl;
     // cout << "Puerto: " << p1.obtienePuerto() << endl;

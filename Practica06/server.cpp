@@ -12,9 +12,9 @@ int main(){
         struct mensaje* msj = resp.getRequest();
         int moneda[1];
         memcpy(&moneda, &msj->arguments, sizeof(msj->arguments));
-         //cout<<"Datos recibidos: "<<moneda[0]<<endl;
+         cout<<"Datos recibidos: "<<moneda[0]<<endl;
         nbd+=moneda[0];
-        //cout<<"\nEnviando respuesta: "<<nbd<<endl;
+        cout<<"\nEnviando respuesta: "<<nbd<<endl;
         resp.sendReply((char*) &nbd);
     }
     return 0;

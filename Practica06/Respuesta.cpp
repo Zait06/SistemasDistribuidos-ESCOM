@@ -15,10 +15,26 @@ struct mensaje* Respuesta::getRequest(void){
     /*Este método devuelve una estructura mensaje porque frecuentemente el código
     del servidor debe tener información al menos del operationId para saber qué 
     operación de las varias que dispone el servidor le están solicitando.*/
+
+
+    /*
     int tam = socketlocal->recibe(p);
     if (tam == -1) {
       perror("Recvfrom fallo");
-    }
+    }*/
+    int tam;
+    do{
+        tam=socketlocal->recibe(p);
+        if(tam==1){
+            perror("Recvfrom fallo");
+        }
+    }while(tam ==-1);
+
+
+
+
+
+
     // cout << "\nMensaje recibido:" << endl;
     // cout << "Direccion: " << p.obtieneDireccion() << endl;
     // cout << "Puerto: " << p.obtienePuerto() << endl;
@@ -38,5 +54,18 @@ void Respuesta::sendReply(char *respuesta){
     // cout << "\nMensaje enviado" << endl;
     // cout << "Direccion: " << p.obtieneDireccion() << endl;
     // cout << "Puerto: " << p.obtienePuerto() << endl;
-    socketlocal->envia(p);
+    
+    
+    
+    /*socketlocal->envia(p);*/
+    int tam;
+    do{
+        tam=socketlocal->envia(p);
+        if(tam==1){
+            perror("Sendto fallo");
+        } 
+    }while(tam==-1);
+
+
+
 }
