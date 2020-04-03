@@ -21,7 +21,17 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
 	PaqueteDatagrama p = PaqueteDatagrama((char*)&sms, sizeof(sms), IP, puerto);
 	// cout << "Direccion: " << p.obtieneDireccion() << endl;
 	// cout << "Puerto: " << p.obtienePuerto() << endl;
-	socketlocal->envia(p);
+
+    int resp;
+    do{
+        resp=socketlocal->envia(p);
+        cout<<"\nRespuesta: "<<resp;
+        if(resp==-1){
+            printf("\nError al enviar, reintentando");
+            return (char *)-1;
+        }
+    }while(resp == -1);
+
 
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
     // int tam = socketlocal->recibe(p1);
