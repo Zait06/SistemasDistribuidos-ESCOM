@@ -19,24 +19,49 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
     memcpy(sms.arguments, arguments, sizeof(arguments));
     
 	PaqueteDatagrama p = PaqueteDatagrama((char*)&sms, sizeof(sms), IP, puerto);
-	cout << "Direccion: " << p.obtieneDireccion() << endl;
-	cout << "Puerto: " << p.obtienePuerto() << endl;
-	socketlocal->envia(p);
-
+	// cout << "Direccion: " << p.obtieneDireccion() << endl;
+	// cout << "Puerto: " << p.obtienePuerto() << endl;
+    //int resp = socketlocal->envia(p);
+    //cout<<"\nRespuesta: "<<resp;
+    int resp;
+	
+        resp = socketlocal->envia(p);
+        //cout<<"\nRespuesta: "<<resp;
+        /*if(resp == -1) 
+        {
+            char rep[]= {'-1'} ;
+            cout<<"\nError al enviar, reintentando";
+            cout<<"\nRespuesta: 7"<<resp;
+            memcpy(sms.arguments, &rep, sizeof(arguments));
+            cout<<"contenido: "<<sms.arguments;
+            cout<<"\nRespuesta: 8"<<resp;
+            /*struct mensaje* msj_p = struct mensaje *;
+            msj_p->arguments = '1';
+            //return (char *) -1;
+            return sms.arguments;
+        }*/
+        
 	PaqueteDatagrama p1 = PaqueteDatagrama(4000);
     // int tam = socketlocal->recibe(p1);
     int inten=1;
-    while(inten<=7){
-        int tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
+    int tam;
+    do{
+        tam = socketlocal->recibeTimeout(p1,seg,microseg);  // Metodo recibe con temporizador
+        cout<<"Respuesta: \n"<<tam;
         if (tam == -1) {
             perror("Recvfrom fallo");
-            inten++;
-        }else
-            break;        
-    }
-    cout << "\nMensaje recibido" << endl;
-    cout << "Direccion: " << p1.obtieneDireccion() << endl;
-    cout << "Puerto: " << p1.obtienePuerto() << endl;
+        }
+        if(inten == 7) 
+        {
+            printf("Demasiados intentos de espera de respuesta, reintentando");
+            inten = 1;
+        }
+        inten++;
+    }while(tam == -1);
+       
+    // cout << "\nMensaje recibido" << endl;
+    // cout << "Direccion: " << p1.obtieneDireccion() << endl;
+    // cout << "Puerto: " << p1.obtienePuerto() << endl;
 	struct mensaje* msj = (struct mensaje *)p1.obtieneDatos();
     return (char *) msj->arguments;
 }

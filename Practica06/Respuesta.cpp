@@ -15,13 +15,17 @@ struct mensaje* Respuesta::getRequest(void){
     /*Este método devuelve una estructura mensaje porque frecuentemente el código
     del servidor debe tener información al menos del operationId para saber qué 
     operación de las varias que dispone el servidor le están solicitando.*/
-    int tam = socketlocal->recibe(p);
-    if (tam == -1) {
-      perror("Recvfrom fallo");
-    }
-    cout << "\nMensaje recibido:" << endl;
-    cout << "Direccion: " << p.obtieneDireccion() << endl;
-    cout << "Puerto: " << p.obtienePuerto() << endl;
+       int tam;
+    do{
+        tam=socketlocal->recibe(p);
+        if(tam==-1){
+            perror("Recvfrom fallo");
+        }
+    }while(tam ==-1);
+
+    // cout << "\nMensaje recibido:" << endl;
+    // cout << "Direccion: " << p.obtieneDireccion() << endl;
+    // cout << "Puerto: " << p.obtienePuerto() << endl;
     return (struct mensaje*) p.obtieneDatos();
 }
 
@@ -35,8 +39,14 @@ void Respuesta::sendReply(char *respuesta){
     memcpy(sms.arguments, respuesta, sizeof(respuesta));
 
     p.inicializaDatos((char*)&sms);
-    cout << "\nMensaje enviado" << endl;
-    cout << "Direccion: " << p.obtieneDireccion() << endl;
-    cout << "Puerto: " << p.obtienePuerto() << endl;
-    socketlocal->envia(p);
+    // cout << "\nMensaje enviado" << endl;
+    // cout << "Direccion: " << p.obtieneDireccion() << endl;
+    // cout << "Puerto: " << p.obtienePuerto() << endl;
+     int tam;
+    do{
+        tam=socketlocal->envia(p);
+        if(tam==1){
+            perror("Sendto fallo");
+        } 
+    }while(tam==-1);
 }
