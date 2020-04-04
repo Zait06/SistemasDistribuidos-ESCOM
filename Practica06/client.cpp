@@ -19,15 +19,7 @@ int main(int argc, char* argv[]){
 		int num=1+rand()%9;
 		// cout<<"Moneda con valor $"<<num<<endl;
 		res=0;
-		//memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,2,0), 4);
-
-		do{
-			memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num, 2, 0), 4);
-		}while(res ==-1);
-
-
-
-
+		memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&num,2,0), 4);
 		// cout<<"El resultado "<<res<<endl;
 		// cout<<"El valor es correcto?\n1. Si\t2. No\nR.- ";
 		// cin>>seguir;
