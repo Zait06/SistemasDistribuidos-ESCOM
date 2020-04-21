@@ -7,3 +7,17 @@ SocketMulticast::SocketMulticast(int puerto){
 		exit(EXIT_FAILURE); 
     }
 }
+
+void SocketMulticast::unirseGrupo(char *multicastIP){
+    struct ip_mreq multicast;
+    multicast.imr_multiaddr.s_addr = inet_addr(multicastIP);
+    multicast.imr_interface.s_addr = htonl(INADDR_ANY);
+    setsockopt(s, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void *) &multicast, sizeof(multicast));
+}
+
+void SocketMulticast::salirseGrupo(char *multicastIP){
+    struct ip_mreq multicast;
+    multicast.imr_multiaddr.s_addr = inet_addr(multicastIP);
+    multicast.imr_interface.s_addr = htonl(INADDR_ANY);
+    setsockopt(s, IPPROTO_IP, IP_DROP_MEMBERSHIP, (void *) &multicast, sizeof(multicast));   
+}
