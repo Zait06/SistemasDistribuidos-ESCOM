@@ -16,6 +16,9 @@ using namespace std;
 class SocketMulticast{
     private:
         int s;  // ID socket
+        struct ip_mreq multicast;
+        struct sockaddr_in direccionLocal;
+        struct sockaddr_in direccionForanea;
     public:
         SocketMulticast(int);
         ~SocketMulticast();
