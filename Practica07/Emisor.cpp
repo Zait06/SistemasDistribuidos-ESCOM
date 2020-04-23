@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 
     char *cadena=argv[4], *ipMulti=argv[1];
     int puerto=atoi(argv[2]);
-    char valorTTL=(char) argv[3];
+    unsigned char valorTTL=(unsigned char) argv[3];
 
     SocketMulticast sm = SocketMulticast(puerto);
     PaqueteDatagrama p = PaqueteDatagrama(cadena, 8, ipMulti, puerto);
