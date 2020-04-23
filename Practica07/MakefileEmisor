@@ -1,0 +1,11 @@
+run: Receptor.cpp SocketMulticast.o SocketDatagrama.o PaqueteDatagrama.o
+	g++ Receptor.cpp SocketMulticast.o SocketDatagrama.o PaqueteDatagrama.o -o Emisors
+	
+SocketMulticast.o: SocketMulticast.cpp PaqueteDatagrama.o SocketMulticast.h
+	g++ SocketMulticast.cpp -c 	
+	
+SocketDatagrama.o: SocketDatagrama.cpp PaqueteDatagrama.o SocketDatagrama.h
+	g++ SocketDatagrama.cpp -c 
+
+PaqueteDatagrama.o: PaqueteDatagrama.cpp PaqueteDatagrama.h
+	g++ PaqueteDatagrama.cpp -c
