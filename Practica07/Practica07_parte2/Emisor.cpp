@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         int result = 0;
         memcpy(&result, respuesta.obtieneDatos(), 4);
         cout<<"Mensaje recibido"<<endl;
-        cout<<"IP de computadora: "<<endl;
+        cout<<"IP de computadora: "<<respuesta.obtieneDireccion()<<endl;
         cout<<"Resultado: "<<result;
         cont++; 
     }
