@@ -1,21 +1,22 @@
 #include "SocketMulticast.h"
 #include "SocketDatagrama.h"
 
-int main(int argc, char *argv[]) {
-	if(argc != 5){
-        printf("Forma de uso: %s ip_multicast puerto numero 1 numero 2\n", argv[0]);
+int main(int argc, char *argv[])
+{
+	if(argc != 4){
+        printf("Forma de uso: %s ip_multicast numero 1 numero 2\n", argv[0]);
 		exit(0);
     }
 
     //char *cadena=argv[4], 
     char *ipMulti=argv[1];
-    int puerto=atoi(argv[2]);
+    //int puerto=atoi(argv[2]);
     //unsigned char valorTTL=(unsigned char) argv[3];
     int num[2];
-    num[0] = atoi(argv[3]);
-    num[1] = atoi(argv[4]);
-    SocketMulticast sm = SocketMulticast(0);
-    PaqueteDatagrama p = PaqueteDatagrama((char *)&num, 8, ipMulti, puerto);
+    num[0] = atoi(argv[2]);
+    num[1] = atoi(argv[3]);
+    SocketMulticast sm = SocketMulticast(6666);
+    PaqueteDatagrama p = PaqueteDatagrama((char *)&num, 8, ipMulti, 3030);
     int cont = 0;
 
     while((sm.envia(p, 1)) > 0) {

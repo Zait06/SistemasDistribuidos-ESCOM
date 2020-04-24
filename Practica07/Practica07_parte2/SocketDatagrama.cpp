@@ -23,7 +23,7 @@ SocketDatagrama::SocketDatagrama(int puerto) {
 		direccionLocal.sin_port = htons(puerto);
 	else
 		direccionLocal.sin_port = puerto;
-	if (bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal))<0 ) { 
+	if (bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal))<0 ){
 		perror("bind failed"); 
 		exit(EXIT_FAILURE); 
 	}
@@ -62,7 +62,7 @@ int SocketDatagrama::envia(PaqueteDatagrama &p){
     direccionForanea.sin_family = AF_INET;
     direccionForanea.sin_addr.s_addr = inet_addr(p.obtieneDireccion());
     direccionForanea.sin_port = p.obtienePuerto();
-    return sendto(s, (char *)p.obtieneDatos(), p.obtieneLongitud()* sizeof(char), 0, (struct sockaddr *)&direccionForanea, sizeof(direccionForanea)); 
+    return sendto(s, (char *)p.obtieneDatos(), p.obtieneLongitud()* sizeof(char), 0, (struct sockaddr *)&direccionForanea, sizeof(direccionForanea));
 }
 
 int SocketDatagrama::recibeTimeout(PaqueteDatagrama &p, time_t segundos, suseconds_t microsegundos){
