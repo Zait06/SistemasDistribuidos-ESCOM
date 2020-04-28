@@ -1,0 +1,7 @@
+gen_registros_cel_clave_en_archivo.cpp:
+
+# de Registros  -   Tiempo
+    7 000           real    0m0.048s    user    0m0.016s    sys     0m0.032s
+   70 000           real    0m0.304s    user    0m0.108s    sys     0m0.196s
+  700 000           real    0m2.840s    user    0m1.012s    sys     0m1.828s
+7 000 000           real    0m29.010s   user    0m10.184s   sys     0m18.827s
