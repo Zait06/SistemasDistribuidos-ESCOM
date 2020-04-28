@@ -7,11 +7,13 @@
 #include <unistd.h>
 #include <iostream> 
 #include <iterator> 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <cstring>
 
 #include <algorithm>    // std::random_shuffle
 #include <vector>       // std::vector
 #include <cstdlib>      // std::rand, std::srand
-
 
 using namespace std; 
 
@@ -20,6 +22,8 @@ struct registro{
 	char CURP[19];
 	char partido[4];
 };
+
+char buffer[BUFSIZ];
 
 int main(int argc, char *argv[]){
 	char telefono[11], curp[19], t[11], sexo;
@@ -33,8 +37,8 @@ int main(int argc, char *argv[]){
 	//Entidades federativas
 	char const entidad[32][3] =  {"AS", "BC", "BS", "CC", "CS", "CH", "CL", "CM", "DF", "DG", "GT", "GR", "HG", "JC", "MC", "MN", "MS", "NT", "NL", "OC", "PL", "QT", "QR", "SP", "SL", "SR", "TC", "TL", "TS", "VZ", "YN", "ZS"};
 
-	if(argc != 2){
-		printf("Forma de uso: programa numero_registros\n");
+	if(argc != 3){
+		printf("Forma de uso: programa numero_registros nombre_archivo\n");
 		exit(0);
 	}
 
@@ -65,11 +69,22 @@ int main(int argc, char *argv[]){
 		registros_vector.push_back(reg1);
 	}
 
+    //Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
+    if((destino = open(argv[2], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
+    {
+        perror(argv[1]);
+        exit(-1);
+    }
+
 	//Aleatoriza el vector de registros e imprime el resultado
 	random_shuffle(registros_vector.begin(), registros_vector.end());
 	for (std::vector<struct registro>::iterator it=registros_vector.begin(); it!=registros_vector.end(); ++it){
 		reg1 = *it;
-		write(1, &reg1, sizeof(reg1));
-		printf("\n");
+		// write(1, &reg1, sizeof(reg1));
+        write(destino,&reg1, sizeof(reg1));
+        write(destino,"\n",1);
+		// printf("\n");
 	}
+    close(destino);
+    exit(0);
 }
