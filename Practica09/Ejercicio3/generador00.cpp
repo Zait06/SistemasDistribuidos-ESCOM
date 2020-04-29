@@ -83,7 +83,7 @@ int main(int argc, char *argv[]){
 		// write(1, &reg1, sizeof(reg1));
         write(destino,&reg1, sizeof(reg1));
         write(destino,"\n",1);
-		printf("\n");
+		// printf("\n");
 	}
     close(destino);
     exit(0);
