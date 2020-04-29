@@ -22,6 +22,7 @@ int main(int argc, char* argv[]){
     SocketDatagrama *socketlocal;
     socketlocal = new SocketDatagrama(7200);
 
+    // Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
     int destino;
     if((destino = open(argv[1], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
         perror(argv[1]);
@@ -43,7 +44,6 @@ int main(int argc, char* argv[]){
             break;
         PaqueteDatagrama p01((char*)&(con),3,p00.obtieneDireccion(),p00.obtienePuerto());
         socketlocal->envia(p01);
-        //Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
         
         write(destino,msjRecib, 32);
         write(destino,"\n",1);
