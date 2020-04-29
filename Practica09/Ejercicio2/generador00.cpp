@@ -14,7 +14,6 @@
 #include <algorithm>    // std::random_shuffle
 #include <vector>       // std::vector
 #include <cstdlib>      // std::rand, std::srand
-#include <fstream>
 
 using namespace std; 
 
@@ -71,27 +70,21 @@ int main(int argc, char *argv[]){
 	}
 
     //Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
-    // if((destino = open(argv[2], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
-    // {
-    //     perror(argv[2]);
-    //     exit(-1);
-    // }
-	fstream archivo(argv[2],fstream::in | fstream::out | fstream::trunc); 
+    if((destino = open(argv[2], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
+    {
+        perror(argv[2]);
+        exit(-1);
+    }
 
 	//Aleatoriza el vector de registros e imprime el resultado
 	random_shuffle(registros_vector.begin(), registros_vector.end());
 	for (std::vector<struct registro>::iterator it=registros_vector.begin(); it!=registros_vector.end(); ++it){
 		reg1 = *it;
-		// write(1, &reg1, sizeof(reg1));
-        // write(destino,&reg1, sizeof(reg1));
-        // write(destino,"\n",1);
-		char *info=reg1.celular;
-		strcat(strcat(info,reg1.CURP),reg1.partido);
-		strcat(info,"\n");
-		archivo.write(info,32);
-		// printf("\n");
+		write(1, &reg1, sizeof(reg1));
+        write(destino,&reg1, sizeof(reg1));
+        write(destino,"\n",1);
+		printf("\n");
 	}
-    // close(destino);
-	archivo.close();
+    close(destino);
     exit(0);
 }
