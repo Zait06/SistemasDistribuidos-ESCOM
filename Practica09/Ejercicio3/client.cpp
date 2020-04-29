@@ -22,10 +22,8 @@ int main(int argc, char* argv[]){
     while(getline(archivo,s)){
         memcpy(cadena,s.c_str(),s.size());
         PaqueteDatagrama package00(cadena, sizeof(cadena), argv[1], 7200);
-        cout<<cadena<<endl;
         int resp;
         sockClient.envia(package00);
-        cout<<"Enviado"<<endl;
         PaqueteDatagrama package01(3);
         resp=sockClient.recibe(package01);
         if(resp)
@@ -41,6 +39,7 @@ int main(int argc, char* argv[]){
     cout<<"Archivo terminado de leer"<<endl;
     memcpy(cadena,"ya",3);
     PaqueteDatagrama package(cadena, sizeof(cadena), argv[1], 7200);
+    sockClient.envia(package);
     archivo.close();
 
     return 0;
