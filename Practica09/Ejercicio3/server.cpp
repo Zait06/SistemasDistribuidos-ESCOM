@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
         write(destino,msjRecib, 32);
         write(destino,"\n",1);
     }
-
+    cout<<"Servidor terminado"<<endl;
     close(destino);
 
     return 0;
