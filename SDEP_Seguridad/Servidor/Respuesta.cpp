@@ -42,7 +42,12 @@ void Respuesta::sendReply(char *respuesta)
     sms.messageType = 1;
     sms.operationId = 0;
     sms.requestId = 0;
-    memcpy(sms.arguments, respuesta, sizeof(respuesta));
+    memcpy(sms.arguments, respuesta, sizeof(timeval));
+    /*prueba
+    timeval res;
+    memcpy(&res, (char *)sms.arguments, sizeof(timeval));
+		cout <<"Respuesta.cpp:"<< res.tv_sec <<" : "<< res.tv_usec<< endl;
+    //Prueba*/
 
     p.inicializaDatos((char *)&sms);
     cout << "\nMensaje enviado" << endl;
