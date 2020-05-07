@@ -23,7 +23,6 @@ int main(int argc, char* argv[]){
             perror(argv[2]);
             exit(-1);
         }
-    int nbd=0;
     Respuesta resp(7200);
     cout << "Servidor iniciado....\n";
     while (true) {
@@ -37,18 +36,20 @@ int main(int argc, char* argv[]){
             actual.tv_usec = 0;  
 	    
 	    gettimeofday(&actual,NULL);
-                cout << actual.tv_sec << endl;
-                cout << actual.tv_usec << endl;
+                cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
             string regs;
             regs += to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
             write(destino,msjRecib, 34);
 	    write(destino,regs.c_str(), regs.length());
             write(destino,"\n", 1);
 
-	    resp.sendReply((char *)&nbd);  
+	    resp.sendReply((char *)&actual);  
         }else{//si es duplicado
+         timeval actual;
+            actual.tv_sec = 0;
+            actual.tv_usec = 0; 
 		cout << "Telefono ya registrado" << endl;
-                resp.sendReply((char *)&nbd);
+                resp.sendReply((char *)&actual);
         }       
     }
     close(destino);
