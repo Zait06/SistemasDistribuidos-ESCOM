@@ -19,7 +19,6 @@ int main(int argc, char* argv[]){
     string s;
     int res=0;
 
-    // while(getline(archivo,s)){
     getline(archivo,s);
     memcpy(cadena,s.c_str(),s.size());
     PaqueteDatagrama package00(cadena, sizeof(cadena), argv[1], 7200);
@@ -36,11 +35,7 @@ int main(int argc, char* argv[]){
     }
     
     sleep(1);
-    // }
     cout<<"Registro terminado de leer"<<endl;
-    // memcpy(cadena,"ya",3);
-    // PaqueteDatagrama package(cadena, sizeof(cadena), argv[1], 7200);
-    // sockClient.envia(package);
     archivo.close();
 
     return 0;
