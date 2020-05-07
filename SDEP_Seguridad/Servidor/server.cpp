@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
                 cout << actual.tv_sec << endl;
                 cout << actual.tv_usec << endl;
             string regs;
-            regs += to_string(actual.tv_sec) + to_string(actual.tv_usec);
+            regs += to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
             write(destino,msjRecib, 34);
 	    write(destino,regs.c_str(), regs.length());
             write(destino,"\n", 1);
