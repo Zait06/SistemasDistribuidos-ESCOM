@@ -1,6 +1,7 @@
 #include "SocketDatagrama.h"
 #include "PaqueteDatagrama.h"
 #include "mensaje.h"
+#include "celulares.h"
 class Respuesta{
 	public:
 	 	Respuesta(int pl);
