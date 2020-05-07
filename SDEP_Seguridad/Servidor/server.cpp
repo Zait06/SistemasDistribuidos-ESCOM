@@ -39,10 +39,10 @@ int main(int argc, char* argv[]){
 	    gettimeofday(&actual,NULL);
                 cout << actual.tv_sec << endl;
                 cout << actual.tv_usec << endl;
-               String regs += to_string(actual.tv_sec) + to_string(actual.tv_usec);
-
-	    write(regs.c_str(), regs.length()); 
+            string regs;
+            regs += to_string(actual.tv_sec) + to_string(actual.tv_usec);
             write(destino,msjRecib, 34);
+	    write(destino,regs.c_str(), regs.length());
             write(destino,"\n", 1);
 
 	    resp.sendReply((char *)&nbd);  
