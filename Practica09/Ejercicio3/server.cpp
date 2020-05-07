@@ -40,8 +40,6 @@ int main(int argc, char* argv[]){
 
         char msjRecib[1024];
         memcpy(msjRecib,p00.obtieneDatos(),32);
-        if(strcmp(msjRecib,"ya")==0)
-            break;
         PaqueteDatagrama p01((char*)&(con),3,p00.obtieneDireccion(),p00.obtienePuerto());
         socketlocal->envia(p01);
         
