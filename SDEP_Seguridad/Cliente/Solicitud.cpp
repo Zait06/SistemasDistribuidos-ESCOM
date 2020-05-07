@@ -44,6 +44,12 @@ char *Solicitud::doOperation(char *IP, int puerto, int operationId, char *argume
 		cout << "Direccion: " << p1.obtieneDireccion() << endl;
 		cout << "Puerto: " << p1.obtienePuerto() << endl;
 		struct mensaje *msj = (struct mensaje *)p1.obtieneDatos();
+		/*Prueba
+		timeval res;
+   		 memcpy(&res, (char *)msj->arguments, sizeof(timeval));
+		//cout <<"Solicitud:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
+		//Prueba*/
+
 		contRequest++;
 		return (char *)msj->arguments;
 	}
