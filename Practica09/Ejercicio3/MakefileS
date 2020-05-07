@@ -1,8 +1,11 @@
-run: server.cpp SocketDatagrama.o PaqueteDatagrama.o 
+run: server.cpp SocketDatagrama.o PaqueteDatagrama.o
 	g++ server.cpp SocketDatagrama.o PaqueteDatagrama.o -o Server
 	
-SocketDatagrama.o: SocketDatagrama.cpp SocketDatagrama.h
-	g++ SocketDatagrama.cpp -c
+SocketDatagrama.o: SocketDatagrama.cpp PaqueteDatagrama.o SocketDatagrama.h
+	g++ SocketDatagrama.cpp -c 
 
 PaqueteDatagrama.o: PaqueteDatagrama.cpp PaqueteDatagrama.h
-	g++ PaqueteDatagrama.cpp -c
+	g++ PaqueteDatagrama.cpp -c 
+	
+clean:
+	rm *.o

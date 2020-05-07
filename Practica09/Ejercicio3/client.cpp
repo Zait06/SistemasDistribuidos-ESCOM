@@ -19,27 +19,23 @@ int main(int argc, char* argv[]){
     string s;
     int res=0;
 
-    while(getline(archivo,s)){
-        memcpy(cadena,s.c_str(),s.size());
-        PaqueteDatagrama package00(cadena, sizeof(cadena), argv[1], 7200);
-        int resp;
-        sockClient.envia(package00);
-        PaqueteDatagrama package01(3);
-        resp=sockClient.recibe(package01);
-        if(resp)
-            continue;
-        else{
-            cout<<"Algo salio mal"<<endl;
-            archivo.close();
-            exit(0);
-        }
-        
-        sleep(1);
+    getline(archivo,s);
+    memcpy(cadena,s.c_str(),s.size());
+    PaqueteDatagrama package00(cadena, sizeof(cadena), argv[1], 7200);
+    int resp;
+    sockClient.envia(package00);
+    PaqueteDatagrama package01(3);
+    resp=sockClient.recibe(package01);
+    if(resp)
+        resp=resp;
+    else{
+        cout<<"Algo salio mal"<<endl;
+        archivo.close();
+        exit(0);
     }
-    cout<<"Archivo terminado de leer"<<endl;
-    memcpy(cadena,"ya",3);
-    PaqueteDatagrama package(cadena, sizeof(cadena), argv[1], 7200);
-    sockClient.envia(package);
+    
+    sleep(1);
+    cout<<"Registro terminado de leer"<<endl;
     archivo.close();
 
     return 0;
