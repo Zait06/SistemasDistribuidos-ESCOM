@@ -50,7 +50,7 @@ void Respuesta::sendReply(char *respuesta)
     //Prueba*/
 
     p.inicializaDatos((char *)&sms);
-    cout << "\nMensaje enviado" << endl;
+    //cout << "\nMensaje enviado" << endl;
     //cout << "Direccion: " << p.obtieneDireccion() << endl;
     //cout << "Puerto: " << p.obtienePuerto() << endl;
     socketlocal->envia(p);

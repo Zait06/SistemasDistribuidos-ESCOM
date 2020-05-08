@@ -41,9 +41,9 @@ int main(int argc, char* argv[]){
 	    celulares.push_back(atoi(re.celular));
             sort(celulares.begin(), celulares.end());
 	    gettimeofday(&actual,NULL); //Ejericio1
-            cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
+            //cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
             string regs = re.toString();
-            regs +="@"+to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
+            regs +="^@"+to_string(actual.tv_sec)+"^@"+ to_string(actual.tv_usec);
             //write(destino,msjRecib, 34);
 	    write(destino,regs.c_str(), regs.length());
             write(destino,"\n", 1);

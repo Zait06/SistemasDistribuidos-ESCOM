@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 	timeval res;
         memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&cadena), sizeof(timeval));
 		
-		cout <<"Client.cpp:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
+		//cout <<"Client.cpp:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
 		regactual++;
 	}
 	return 0;

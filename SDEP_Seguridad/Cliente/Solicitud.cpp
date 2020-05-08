@@ -12,7 +12,7 @@ char *Solicitud::doOperation(char *IP, int puerto, int operationId, char *argume
 	struct mensaje sms;
 	sms.messageType = 0;
 	sms.requestId = contRequest;
-	printf("\nContRequest: %u\n", contRequest);
+	//printf("\nContRequest: %u\n", contRequest);
 	sms.operationId = operationId;
 	memcpy(sms.arguments, arguments, 256);
 	PaqueteDatagrama p = PaqueteDatagrama((char *)&sms, sizeof(sms), IP, puerto);
@@ -40,9 +40,9 @@ char *Solicitud::doOperation(char *IP, int puerto, int operationId, char *argume
 	else
 	{
 		socketlocal->~SocketDatagrama();
-		cout << "\nMensaje recibido" << endl;
-		cout << "Direccion: " << p1.obtieneDireccion() << endl;
-		cout << "Puerto: " << p1.obtienePuerto() << endl;
+		//cout << "\nMensaje recibido" << endl;
+		//cout << "Direccion: " << p1.obtieneDireccion() << endl;
+		//cout << "Puerto: " << p1.obtienePuerto() << endl;
 		struct mensaje *msj = (struct mensaje *)p1.obtieneDatos();
 		/*Prueba
 		timeval res;

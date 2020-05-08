@@ -7,7 +7,7 @@ struct celulares{
 	char partido[4];
 	string toString()
 	{
-		return string(celular)+"@"+string(CURP)+"@"+string(partido);
+		return string(celular)+"^@"+string(CURP)+"^@"+string(partido);
 	}
     bool operator<(const celulares & other) const
     {
