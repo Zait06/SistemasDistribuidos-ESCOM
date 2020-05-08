@@ -43,8 +43,8 @@ int main(int argc, char* argv[]){
 	    gettimeofday(&actual,NULL); //Ejericio1
             cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
             string regs = re.toString();
-            regs += to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
-            write(destino,msjRecib, 34);
+            regs +="@"+to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
+            //write(destino,msjRecib, 34);
 	    write(destino,regs.c_str(), regs.length());
             write(destino,"\n", 1);
 
