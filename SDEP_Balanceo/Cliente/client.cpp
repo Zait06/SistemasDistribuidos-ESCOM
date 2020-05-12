@@ -15,6 +15,9 @@ int main(int argc, char *argv[]){
     }
     ifstream archivo(argv[2], ios::binary);
     char cadena[256];
+    char *serverA;  int portA;
+    char *serverB;  int portB;
+    char *serverC;  int portC;
     string s;
     int regactual=0;
     int res = 0;
@@ -29,7 +32,20 @@ int main(int argc, char *argv[]){
         // y los manda en mensajes UDP(un registro en cada mensaje UDP) hacia el servidor.;
         Solicitud s;
 	    timeval res;
-        memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&cadena), sizeof(timeval));
+
+        // memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&cadena), sizeof(timeval));
+
+        if(cadena[9]>=0 || cadena[9]<=3){
+            memcpy(&res, s.doOperation(serverA, portA, 1, (char *)&cadena), sizeof(timeval));
+        }
+
+        if(cadena[9]>=4 || cadena[9]<=6){
+            memcpy(&res, s.doOperation(serverB, portB, 1, (char *)&cadena), sizeof(timeval));
+        }
+
+        if(cadena[9]>=7 || cadena[9]<=9){
+            memcpy(&res, s.doOperation(serverC, portC, 1, (char *)&cadena), sizeof(timeval));
+        }
 		
 		//cout <<"Client.cpp:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
 		regactual++;
