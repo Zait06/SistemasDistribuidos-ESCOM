@@ -3,7 +3,13 @@
 #include <unistd.h>
 #include <iostream>
 #include <sys/time.h>
+#include <thread>  
 #include <fstream>//archivo
+
+void enviarMensaje(char *ipserv, char portserv, char *cadena, Solicitud s){
+    timeval res;
+    memcpy(&res, s.doOperation(ipserv, portserv, 1, (char *)&cadena), sizeof(timeval));
+}
 
 using namespace std;
 int randNum();
@@ -31,20 +37,22 @@ int main(int argc, char *argv[]){
         
         // y los manda en mensajes UDP(un registro en cada mensaje UDP) hacia el servidor.;
         Solicitud s;
-	    timeval res;
 
         // memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&cadena), sizeof(timeval));
 
         if(cadena[9]>=0 || cadena[9]<=3){
-            memcpy(&res, s.doOperation(serverA, portA, 1, (char *)&cadena), sizeof(timeval));
+            thread t(enviarMensaje, serverA, portA, cadena, s);
+			t.detach();
         }
 
         if(cadena[9]>=4 || cadena[9]<=6){
-            memcpy(&res, s.doOperation(serverB, portB, 1, (char *)&cadena), sizeof(timeval));
+            thread t(enviarMensaje, serverA, portA, cadena, s);
+			t.detach();
         }
 
         if(cadena[9]>=7 || cadena[9]<=9){
-            memcpy(&res, s.doOperation(serverC, portC, 1, (char *)&cadena), sizeof(timeval));
+            thread t(enviarMensaje, serverA, portA, cadena, s);
+			t.detach();
         }
 		
 		//cout <<"Client.cpp:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
