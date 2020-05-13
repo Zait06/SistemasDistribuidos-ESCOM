@@ -79,8 +79,8 @@ bool search(struct TrieNode *root, string key)
 }
 
 int main(int argc, char* argv[]){
-    if(argc != 2){
-        cout<<"Forma de usa: nombre_programa nombre_archivo"<<endl;
+    if(argc != 3){
+        cout<<"Forma de usa: nombre_programa nombre_archivo puerto"<<endl;
         exit(0);
     }
 
@@ -88,11 +88,11 @@ int main(int argc, char* argv[]){
     int destino;
     //Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
     if((destino = open(argv[1], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
-        perror(argv[2]);
+        perror(argv[1]);
         exit(-1);
     }
     
-    Respuesta resp(7200);
+    Respuesta resp(atoi(argv[2]));
     cout << "Servidor iniciado....\n";
 
     while (true) {

@@ -15,20 +15,19 @@ using namespace std;
 int randNum();
 int main(int argc, char *argv[]){
     //El cliente debe recibir el parámetro n en la línea de comandos...
-    if(argc != 4){
-        cout<<"Forma de usa: nombre_programa ip nombre_archivo num__registros"<<endl;
+    if(argc != 9){
+        cout<<"Forma de usa: nombre_programa nombre_archivo num_registros ipA portA ipB portB ipC portC"<<endl;
         exit(0);
     }
-    ifstream archivo(argv[2], ios::binary);
+    
+    ifstream archivo(argv[1], ios::binary);
     char cadena[256];
-    char *serverA;  int portA;
-    char *serverB;  int portB;
-    char *serverC;  int portC;
+
     string s;
     int regactual=0;
     int res = 0;
     //leerá n registros de un archivo...
-	int n = atoi(argv[3]);
+	int n = atoi(argv[2]);
 	while (regactual < n){
         //irá leyendo cada registro del archivo...
         getline(archivo,s);
@@ -37,26 +36,27 @@ int main(int argc, char *argv[]){
         
         // y los manda en mensajes UDP(un registro en cada mensaje UDP) hacia el servidor.;
         Solicitud s;
-
+        // timeval res;
         // memcpy(&res, s.doOperation(argv[1], 7200, 1, (char *)&cadena), sizeof(timeval));
 
         if(cadena[9]>=0 || cadena[9]<=3){
-            thread t(enviarMensaje, serverA, portA, cadena, s);
+            thread t(enviarMensaje, argv[3], atoi(argv[4]), cadena, s);
 			t.detach();
         }
 
         if(cadena[9]>=4 || cadena[9]<=6){
-            thread t(enviarMensaje, serverA, portA, cadena, s);
+            thread t(enviarMensaje, argv[5], atoi(argv[6]), cadena, s);
 			t.detach();
         }
 
         if(cadena[9]>=7 || cadena[9]<=9){
-            thread t(enviarMensaje, serverA, portA, cadena, s);
+            thread t(enviarMensaje, argv[7], atoi(argv[8]), cadena, s);
 			t.detach();
         }
 		
 		//cout <<"Client.cpp:"<<res.tv_sec<<" : "<< res.tv_usec << endl;
 		regactual++;
+        sleep(1);
 	}
 	return 0;
 }
