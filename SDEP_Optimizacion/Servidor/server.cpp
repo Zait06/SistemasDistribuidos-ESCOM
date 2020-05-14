@@ -103,9 +103,7 @@ int main(int argc, char* argv[]){
 
             if(!search(root, string(re.celular)))
             {
-                cout<<"maincra 5"<<endl;
                 insert(root, string(re.celular));
-                cout<<"maincra 6"<<endl;
                 gettimeofday(&actual,NULL);
                 //cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
                 string regs = re.toString();
