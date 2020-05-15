@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include <bits/stdc++.h> 
+#include <fstream>
 
 using namespace std;
 //Para cada registro recibido, el servidor deberá irlos guardando en un archivo, el cual será nuestra base
@@ -80,13 +81,19 @@ int main(int argc, char* argv[]){
     }
 
     struct TrieNode *root = getNode();
-    int destino;
+    //int destino;
     //Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
-    if((destino = open(argv[1], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
+    /*if((destino = open(argv[1], O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
         perror(argv[2]);
         exit(-1);
+    }*/
+    ofstream archivo;
+    archivo.open(argv[1], ios::out);
+    if(archivo.fail())
+    {
+        cout<<"No se pudo crear el archivo"<<endl;
+        exit(-1);
     }
-    
     Respuesta resp(7200);
     cout << "Servidor iniciado....\n";
 
@@ -110,8 +117,8 @@ int main(int argc, char* argv[]){
                 //regs = string(re.celular) + string(re.CURP) + string(re.partido);
                 regs += to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
                 //write(destino,reg., 34);
-	            write(destino,regs.c_str(), regs.length());
-                write(destino,"\n", 1);
+                archivo.write(regs.c_str(), regs.length());
+                archivo.write("\n", 1);
 	            resp.sendReply((char *)&actual);
             }
             else{//si es duplicado
@@ -123,5 +130,5 @@ int main(int argc, char* argv[]){
             }
         }
     }
-    close(destino);
+    archivo.close();
 }
