@@ -16,7 +16,7 @@ using namespace std;
 //Para cada registro recibido, el servidor deberá irlos guardando en un archivo, el cual será nuestra base
 //de datos.
 
-const int ALPHABET_SIZE = 26; 
+const int ALPHABET_SIZE = 10;
   
 // trie node 
 struct TrieNode 
@@ -26,7 +26,6 @@ struct TrieNode
     // end of a word 
     bool isEndOfWord; 
 }; 
-  
 // Returns new trie node (initialized to NULLs) 
 struct TrieNode *getNode(void) 
 { 
@@ -34,12 +33,11 @@ struct TrieNode *getNode(void)
   
     pNode->isEndOfWord = false; 
   
-    for (int i = 0; i < ALPHABET_SIZE; i++) 
+    for (int i = 0; i < 9; i++) 
         pNode->children[i] = NULL; 
   
     return pNode; 
-} 
-  
+}
 // If not present, inserts key into trie 
 // If the key is prefix of trie node, just 
 // marks leaf node 
@@ -49,7 +47,7 @@ void insert(struct TrieNode *root, string key)
   
     for (int i = 0; i < key.length(); i++) 
     { 
-        int index = key[i] - 'a'; 
+        int index = key[i] - '0';
         if (!pCrawl->children[index]) 
             pCrawl->children[index] = getNode(); 
   
@@ -58,8 +56,7 @@ void insert(struct TrieNode *root, string key)
   
     // mark last node as leaf 
     pCrawl->isEndOfWord = true; 
-} 
-  
+}  
 // Returns true if key presents in trie, else 
 // false 
 bool search(struct TrieNode *root, string key) 
@@ -68,7 +65,7 @@ bool search(struct TrieNode *root, string key)
   
     for (int i = 0; i < key.length(); i++) 
     { 
-        int index = key[i] - 'a'; 
+        int index = key[i] - '0';
         if (!pCrawl->children[index]) 
             return false; 
   
@@ -108,21 +105,10 @@ int main(int argc, char* argv[]){
             
             actual.tv_sec = 0;
             actual.tv_usec = 0;
-
-            //Ejercicio 2
-	        /*if(!binary_search(celulares.begin(), 		celulares.end(),atoi(re.celular))){
-	        celulares.push_back(atoi(re.celular));
-            sort(celulares.begin(), celulares.end());
-    	    gettimeofday(&actual,NULL); //Ejericio1
-            //cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
-            string regs = re.toString();
-            regs +="^@"+to_string(actual.tv_sec)+"^@"+ to_string(actual.tv_usec);
-            //write(destino,msjRecib, 34);
-	        write(destino,regs.c_str(), regs.length());
-            write(destino,"\n", 1);
-	        resp.sendReply((char *)&actual);*/
+            
             if(!search(root, string(re.celular)))
             {
+                insert(root, string(re.celular));
                 gettimeofday(&actual,NULL);
                 //cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
                 string regs = re.toString();
@@ -133,12 +119,13 @@ int main(int argc, char* argv[]){
                 write(destino,"\n", 1);
 	            resp.sendReply((char *)&actual);
             }
-        }else{//si es duplicado
-            timeval actual;
-            actual.tv_sec = 0;
-            actual.tv_usec = 0;
-		    cout << "Telefono ya registrado" << endl;
-            resp.sendReply((char *)&actual);
+            else{//si es duplicado
+                timeval actual;
+                actual.tv_sec = 0;
+                actual.tv_usec = 0;
+    		    cout << "Telefono ya registrado" << endl;
+                resp.sendReply((char *)&actual);
+            }
         }
     }
     close(destino);
