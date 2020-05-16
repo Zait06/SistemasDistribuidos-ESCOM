@@ -14,7 +14,7 @@ char *Solicitud::doOperation(char *IP, int puerto, int operationId, char *argume
 	sms.requestId = contRequest;
 	printf("\nContRequest: %u\n", contRequest);
 	sms.operationId = operationId;
-	memcpy(sms.arguments, arguments, 256);
+	memcpy(sms.arguments, arguments,256);
 	PaqueteDatagrama p = PaqueteDatagrama((char *)&sms, sizeof(sms), IP, puerto);
 	//cout << "Direccion: " << p.obtieneDireccion() << endl;
 	//cout << "Puerto: " << p.obtienePuerto() << endl;

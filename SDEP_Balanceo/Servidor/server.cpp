@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include <bits/stdc++.h> 
-#include <fstream>
 
 using namespace std;
 //Para cada registro recibido, el servidor deberá irlos guardando en un archivo, el cual será nuestra base
