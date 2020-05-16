@@ -6,11 +6,10 @@
 #include <ctime>
 #include <fstream>//archivo
 #include <fcntl.h>//open
-
 #include <unistd.h>
 #include <sys/time.h>
-
 #include <bits/stdc++.h> 
+#include <fstream>
 
 using namespace std;
 //Para cada registro recibido, el servidor deberá irlos guardando en un archivo, el cual será nuestra base
@@ -75,7 +74,8 @@ bool search(struct TrieNode *root, string key)
     return (pCrawl != NULL && pCrawl->isEndOfWord); 
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
     if(argc != 3){
         cout<<"Forma de usa: nombre_programa nombre_archivo puerto"<<endl;
         exit(0);
@@ -88,18 +88,14 @@ int main(int argc, char* argv[]){
         perror(argv[1]);
         exit(-1);
     }
-    
+    //int puerto = atoi(argv[2]);
     Respuesta resp(atoi(argv[2]));
     cout << "Servidor iniciado....\n";
 
-    while (true) {
+    while(true){
         struct mensaje *msj = resp.getRequest();
-        //struct registro reg;
         struct celulares re;
         if(msj != NULL){
-            //char msjRecib[1024];
-            //memcpy(msjRecib,&msj->arguments,34);
-            //memcpy(&reg,&msj->arguments,sizeof(registro));
 	        memcpy(&re,&msj->arguments,sizeof(struct celulares));
             timeval actual;
             
@@ -112,9 +108,7 @@ int main(int argc, char* argv[]){
                 gettimeofday(&actual,NULL);
                 //cout <<"Server.cpp:"<< actual.tv_sec <<" : "<< actual.tv_usec<< endl;
                 string regs = re.toString();
-                //regs = string(re.celular) + string(re.CURP) + string(re.partido);
                 regs += to_string(actual.tv_sec)+"@"+ to_string(actual.tv_usec);
-                //write(destino,reg., 34);
 	            write(destino,regs.c_str(), regs.length());
                 write(destino,"\n", 1);
 	            resp.sendReply((char *)&actual);

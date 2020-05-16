@@ -5,7 +5,7 @@ using namespace std;
 
 PaqueteDatagrama p = PaqueteDatagrama(65000);
 
-Respuesta::Respuesta(int pl) {
+Respuesta::Respuesta(int pl){
     socketlocal = new SocketDatagrama(pl);
     contRequest = 0;
 }
